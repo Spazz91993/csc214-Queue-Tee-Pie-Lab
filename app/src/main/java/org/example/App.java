@@ -4,11 +4,24 @@
 package org.example;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        CuteQueue cuteQueue = new CuteQueue(2); // capacity 2
+        
+        Puppy puppy1 = new Puppy();
+        Puppy puppy2 = new Puppy();
+        Puppy puppy3 = new Puppy();
+        
+        cuteQueue.enqueue(puppy1);
+        cuteQueue.enqueue(puppy2);
+        
+        System.out.println("Current queue size: " + cuteQueue.size()); // Should print 2
+        
+        cuteQueue.enqueue(puppy3); // Should print "Queue is full!"
+        
+        Cutie firstCutie = cuteQueue.dequeue();
+        System.out.println("Dequeued: " + firstCutie.description()); // Info about puppy1
+        
+        System.out.println("Current queue size: " + cuteQueue.size()); // Should print 1
     }
 }
+
